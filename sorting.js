@@ -7,6 +7,7 @@ function lexSort(arr, order){
 	return readTrie(trie, order);
 }
 
+
 /**
 * Recursively builds a Trie with the elements of arr, using the string order
 * as the lexicographical order.
@@ -18,7 +19,6 @@ function buildTrie(arr, order, ind){
 			"" : arr
 		}
 	}
-
 	var trie = {};
 	//Iterate through all the given strings in arr,
 	// placing them into 'buckets' based on their ind'th character
@@ -30,7 +30,6 @@ function buildTrie(arr, order, ind){
 		}
 		trie[c].push(arr[i]);
 	}
-
 	//Go through this node's 'buckets' & convert them into trie nodes
 	for(var j = 0; j < order.length; j++){
 		var c = order.charAt(j);
@@ -38,7 +37,6 @@ function buildTrie(arr, order, ind){
 			trie[c] = buildTrie(trie[c], order, ind+1);
 		}
 	}
-
 	return trie;
 }
 
@@ -47,18 +45,14 @@ function buildTrie(arr, order, ind){
 * Breadth-first traversal of the trie
 */
 function readTrie(trie, order){
-	
 	var ret = [];
-
 	var queue = [];
 	var node = trie;
-
 	while(typeof(node) === "object"){
 		//If this node has a value, add it to the ret array
 		if(node.hasOwnProperty("")){
 			ret = ret.concat(node[""]);
 		}
-
 		//go through this node's children nodes, in order,
 		// and add those nodes to the queue
 		for(var j = 0; j < order.length; j++){
@@ -69,6 +63,5 @@ function readTrie(trie, order){
 		}
 		node = queue.shift(); //grab the next node off of the queue
 	}
-
 	return ret;
 }

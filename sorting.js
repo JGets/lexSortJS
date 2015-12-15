@@ -1,5 +1,5 @@
 /**
-* Lexicographically sorts the strings[] arr, using the string order as the
+* Lexicographically sorts the string[] arr, using the string order as the
 * lexicographical order.
 */ 
 function lexSort(arr, order){
@@ -18,7 +18,7 @@ function lexSort(arr, order){
 *			k = number keys (length of order string)
 */
 function buildTrie(arr, order, ind){
-	//If there is only one element in arr, return an leaf Trie element.
+	//If there is only one element in arr, return a leaf Trie element.
 	if(arr.length == 1){
 		return {
 			"" : arr
@@ -30,7 +30,7 @@ function buildTrie(arr, order, ind){
 	for(var i = 0; i < arr.length; i++){
 		var c = arr[i].charAt(ind);
 		if(!trie.hasOwnProperty(c)){
-			trie[c] = []; //If this trie doesn't already have a bucket for this
+			trie[c] = []; //If this trie doesn't already have a bucket for
 						  // this character, make a new one.
 		}
 		trie[c].push(arr[i]);

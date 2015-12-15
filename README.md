@@ -1,4 +1,4 @@
-# Lexicographical Sort
+# Lexicographic Sort
 
 ````javascript
 lexSort(arr, order);

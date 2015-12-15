@@ -11,6 +11,11 @@ function lexSort(arr, order){
 /**
 * Recursively builds a Trie with the elements of arr, using the string order
 * as the lexicographical order.
+*
+* O(Lnk), where:
+*			L = sum of the lengths of all strings in arr
+* 			n = number of strings in arr
+*			k = number keys (length of order string)
 */
 function buildTrie(arr, order, ind){
 	//If there is only one element in arr, return an leaf Trie element.
@@ -43,6 +48,8 @@ function buildTrie(arr, order, ind){
 
 /**
 * Breadth-first traversal of the trie
+*
+* O(n) where n = the number of nodes in trie
 */
 function readTrie(trie, order){
 	var ret = [];
